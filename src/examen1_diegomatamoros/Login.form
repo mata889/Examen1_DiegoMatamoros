@@ -6,7 +6,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -37,9 +37,9 @@
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jt_contraseña" alignment="1" min="-2" pref="103" max="-2" attributes="0"/>
                           <Component id="jt_usuario" alignment="1" min="-2" pref="103" max="-2" attributes="0"/>
                           <Component id="bt_iniciar" alignment="1" min="-2" pref="128" max="-2" attributes="0"/>
+                          <Component id="jt_pass" alignment="1" min="-2" pref="103" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -65,7 +65,7 @@
               <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jt_contraseña" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jt_pass" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
               <Component id="bt_iniciar" min="-2" pref="50" max="-2" attributes="0"/>
@@ -102,18 +102,28 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jt_usuario">
-    </Component>
-    <Component class="javax.swing.JTextField" name="jt_contrase&#xf1;a">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jt_usuarioActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bt_iniciar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Iniciar Sesion"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bt_iniciarMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bt_crear">
       <Properties>
         <Property name="text" type="java.lang.String" value="Crear"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bt_crearMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_crearActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="jt_pass">
     </Component>
   </SubComponents>
 </Form>

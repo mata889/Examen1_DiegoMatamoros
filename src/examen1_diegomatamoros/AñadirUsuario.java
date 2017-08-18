@@ -97,11 +97,12 @@ public class AñadirUsuario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(bt_añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addComponent(jLabel1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,26 +117,24 @@ public class AñadirUsuario extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 7, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jd_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(tf_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                                            .addComponent(tf_contra))
-                                        .addGap(61, 61, 61)
+                                        .addComponent(tf_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(36, 36, 36)
                                         .addComponent(jLabel8)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(tf_genero, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(tf_genero, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jd_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_contra, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tf_NumeroTelefonico)
+                                    .addComponent(tf_NumeroTelefonico, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
                                     .addComponent(tf_correo)
-                                    .addComponent(tf_nombreCompleto, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap(39, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(bt_añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89))
+                                    .addComponent(tf_nombreCompleto))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(jLabel1)))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,10 +169,11 @@ public class AñadirUsuario extends javax.swing.JFrame {
                     .addComponent(tf_nombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(bt_añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tf_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_usuarioActionPerformed
@@ -192,27 +192,49 @@ public class AñadirUsuario extends javax.swing.JFrame {
         String usuario, contraseña, numero, correo, NombreFull, genero;
         Date fecha;
         try {
-            usuario=tf_usuario.getText();
-            contraseña=tf_contra.getText();
-            numero=tf_NumeroTelefonico.getText();
-            correo=tf_correo.getText();
-            NombreFull=tf_nombreCompleto.getText();
-            genero=tf_genero.getText();
+            usuario = tf_usuario.getText();
+            contraseña = tf_contra.getText();
+            numero = tf_NumeroTelefonico.getText();
+            correo = tf_correo.getText();
+            NombreFull = tf_nombreCompleto.getText();
+            genero = tf_genero.getText();
             if (genero.toLowerCase().equals("fantasia")) {
-                genero="fantasia";
-            }if (genero.toLowerCase().equals("romance")) {
-                genero="romance";
-            }if (genero.toLowerCase().equals("accion")) {
-                genero="accion";
-            }if (genero.toLowerCase().equals("historia")) {
-                genero="historia";
-            }if (!genero.toLowerCase().equals("fantasia")&& !genero.toLowerCase().equals("romance") && !genero.toLowerCase().equals("accion")&& !genero.toLowerCase().equals("historia")) {
-              throw new EmptyStackException();
+                genero = "fantasia";
             }
-            fecha=jd_fecha.getDate();
+            if (genero.toLowerCase().equals("romance")) {
+                genero = "romance";
+            }
+            if (genero.toLowerCase().equals("accion")) {
+                genero = "accion";
+            }
+            if (genero.toLowerCase().equals("historia")) {
+                genero = "historia";
+            }
+            if (!genero.toLowerCase().equals("fantasia") && !genero.toLowerCase().equals("romance") && !genero.toLowerCase().equals("accion") && !genero.toLowerCase().equals("historia")) {
+                throw new EmptyStackException();
+            }
+            fecha = jd_fecha.getDate();
+
+            lista.add(new Usuarios(usuario, contraseña, numero, correo, NombreFull, genero, fecha));
+            tf_usuario.setText("");
+            tf_contra.setText("");
+            tf_NumeroTelefonico.setText("");
+            tf_correo.setText("");
+            tf_nombreCompleto.setText("");
+            tf_genero.setText("");
+            jd_fecha.setDate(new Date());
+            JOptionPane.showMessageDialog(this, "Se ha añadido exitosamente el usuario");
+            this.dispose();
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Ha ocurrido un error no se ha guardado los datos \n INTENTE DE NUEVO");
+            tf_usuario.setText("");
+            tf_contra.setText("");
+            tf_NumeroTelefonico.setText("");
+            tf_correo.setText("");
+            tf_nombreCompleto.setText("");
+            tf_genero.setText("");
+            jd_fecha.setDate(new Date());
         }
     }//GEN-LAST:event_bt_añadirMouseClicked
 
@@ -227,7 +249,7 @@ public class AñadirUsuario extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Metal".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -269,5 +291,5 @@ public class AñadirUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField tf_nombreCompleto;
     private javax.swing.JTextField tf_usuario;
     // End of variables declaration//GEN-END:variables
-ArrayList<Usuarios>lista=new ArrayList();
+static ArrayList<Usuarios> lista = new ArrayList();
 }

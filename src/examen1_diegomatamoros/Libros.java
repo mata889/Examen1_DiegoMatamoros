@@ -1,11 +1,12 @@
 
 package examen1_diegomatamoros;
 
-public class Libros {
+public class Libros extends Usuarios {
     String titulo,descripcion,genero,autor;
     int copias,puntaje,añoPublicacion,valor,edicion;
 
     public Libros() {
+        super();
     }
 
     public Libros(String titulo, String descripcion, String genero, String autor, int copias, int puntaje, int añoPublicacion, int valor, int edicion) {
