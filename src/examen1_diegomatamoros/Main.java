@@ -178,6 +178,11 @@ public class Main extends javax.swing.JFrame {
                 jt_añadirMouseClicked(evt);
             }
         });
+        jt_añadir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jt_añadirActionPerformed(evt);
+            }
+        });
 
         jt_actualizar.setText("Actualizar");
         jt_actualizar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -232,6 +237,11 @@ public class Main extends javax.swing.JFrame {
         jb_acut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb_acutActionPerformed(evt);
+            }
+        });
+        jb_acut.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jb_acutKeyPressed(evt);
             }
         });
 
@@ -420,7 +430,9 @@ public class Main extends javax.swing.JFrame {
 
     private void jt_añadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_añadirMouseClicked
         Usuarios r = new Usuarios();
+        Login l=new Login();
         r.Amiguitos.add(jComboBox1.getSelectedItem().toString());
+        r.solicitud.add(new Solicitude(jComboBox1.getSelectedItem().toString(),l.nombre()));
 
     }//GEN-LAST:event_jt_añadirMouseClicked
 
@@ -464,6 +476,25 @@ public class Main extends javax.swing.JFrame {
     private void jt_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jt_actualizarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jt_actualizarActionPerformed
+
+    private void jt_añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jt_añadirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jt_añadirActionPerformed
+
+    private void jb_acutKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jb_acutKeyPressed
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_solicitud.getModel();
+        AñadirUsuario u = new AñadirUsuario();
+        Usuarios s = new Usuarios();
+        Login l=new Login();
+        modelo.removeAllElements();
+        for (int i = 0; i <s.solicitud.size(); i++) {
+            if (s.solicitud.get(i).aQuien.equals(l.nombre())) {
+                modelo.addElement(s.solicitud.get(i).nombre);
+            }
+            
+
+        }
+    }//GEN-LAST:event_jb_acutKeyPressed
 
     /**
      * @param args the command line arguments

@@ -9,8 +9,8 @@ public class Usuarios {
     String nombre,contraseña,numero,correo,NombreFull,genero;
     Date fecha;
     static ArrayList <Libros>libros=new ArrayList();
-    ArrayList Amiguitos=new ArrayList();
-
+    static ArrayList Amiguitos=new ArrayList();
+   static  ArrayList<Solicitude>solicitud=new ArrayList();
     public Usuarios() {
     }
 
