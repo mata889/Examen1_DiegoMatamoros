@@ -140,18 +140,61 @@ public class Login extends javax.swing.JFrame {
         AñadirUsuario u = new AñadirUsuario();
         u.lista.add(new Usuarios("Salvador", "Nasralla", "99999999", "dam_900@hotmail.com", "ElMeroPresi", "historia", new Date()));
         for (int i = 0; i < u.lista.size(); i++) {
-            if (jt_usuario.getText() == "Salvador") {
-                if (jt_pass.getText() == "Nasralla") {
+            if ("Salvador".equals(jt_usuario.getText())) {
+                if ("Nasralla".equals(jt_pass.getText())) {
                     int menu;
-                    Libros l=new Libros();
-                    menu = Integer.parseInt(JOptionPane.showInputDialog("1.Agregar Libros\n2.Modificar Libros\n3.Eliminar Libros"));
-                    if (menu==1) {
-                        
-                    }
+                    do {
+
+                        Usuarios l = new Libros();
+                        menu = Integer.parseInt(JOptionPane.showInputDialog("1.Agregar Libros\n2.Modificar Libros\n3.Eliminar Libros\n 0.Salir"));
+                        if (menu == 1) {
+                            String titulo, descripcion, genero, autor;
+                            int copias, puntaje, añoPublicacion, valor, edicion;
+                            titulo = JOptionPane.showInputDialog("Introduzca un titulo para el libro");
+                            descripcion = JOptionPane.showInputDialog("Introduzca un descripcion");
+                            genero = JOptionPane.showInputDialog("Introduzca una descripcion");
+                            autor = JOptionPane.showInputDialog("Introduzca un genero");
+                            copias = Integer.parseInt(JOptionPane.showInputDialog("Introduzca las copias"));
+                            puntaje = Integer.parseInt(JOptionPane.showInputDialog("Introducir puntaje"));
+                            añoPublicacion = Integer.parseInt(JOptionPane.showInputDialog("Introducir año de publicacion"));
+                            valor = Integer.parseInt(JOptionPane.showInputDialog("Introduzca un valor"));
+                            edicion = Integer.parseInt(JOptionPane.showInputDialog("Introduzca una edicion"));
+                            l.libros.add(new Libros(titulo, descripcion, genero, autor, copias, puntaje, añoPublicacion, valor, edicion));
+
+                        }
+                        if (menu == 2) {
+                            String suma = "";
+                            for (int j = 0; j < l.libros.size(); j++) {
+                                suma += "-" + l.libros.get(j) + "\n";
+                            }
+                            int menu2 = Integer.parseInt("Su lista:\n" + JOptionPane.showInputDialog(suma));
+                            String titulo, descripcion, genero, autor;
+                            int copias, puntaje, añoPublicacion, valor, edicion;
+                            titulo = JOptionPane.showInputDialog("Introduzca un titulo para el libro");
+                            descripcion = JOptionPane.showInputDialog("Introduzca un descripcion");
+                            genero = JOptionPane.showInputDialog("Introduzca una descripcion");
+                            autor = JOptionPane.showInputDialog("Introduzca un genero");
+                            copias = Integer.parseInt(JOptionPane.showInputDialog("Introduzca las copias"));
+                            puntaje = Integer.parseInt(JOptionPane.showInputDialog("Introducir puntaje"));
+                            añoPublicacion = Integer.parseInt(JOptionPane.showInputDialog("Introducir año de publicacion"));
+                            valor = Integer.parseInt(JOptionPane.showInputDialog("Introduzca un valor"));
+                            edicion = Integer.parseInt(JOptionPane.showInputDialog("Introduzca una edicion"));
+                            l.libros.set(menu2, new Libros(titulo, descripcion, genero, autor, copias, puntaje, añoPublicacion, valor, edicion));
+                        }
+                        if (menu==3) {
+                            String suma2 = null;
+                            for (int j = 0; j < l.libros.size(); j++) {
+                                suma2 += "-" + l.libros.get(j) + "\n";
+                            }
+                            int menu2 = Integer.parseInt("Cualquiere eliminar-Su lista:\n" + JOptionPane.showInputDialog(suma2));
+                            l.libros.remove(menu2);
+                        }
+                    } while (menu != 0);
+
                 }
             }
-            if (u.lista.get(i).getNombre().equals(jt_usuario.getText())) {
-                if (u.lista.get(i).getContraseña().equals(jt_pass.getText())) {
+            if (u.lista.get(i).getNombre().equals(jt_usuario.getText()) && !"Salvador".equals(jt_usuario.getText())) {
+                if (u.lista.get(i).getContraseña().equals(jt_pass.getText()) && !"Salvador".equals(jt_usuario.getText())) {
                     r = i;
                     Main m = new Main();
                     m.setVisible(true);
