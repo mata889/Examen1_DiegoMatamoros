@@ -1,16 +1,17 @@
-
 package examen1_diegomatamoros;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-
 public class Usuarios {
-    String nombre,contraseña,numero,correo,NombreFull,genero;
+
+    String nombre, contraseña, numero, correo, NombreFull, genero;
     Date fecha;
-    static ArrayList <Libros>libros=new ArrayList();
-    static ArrayList Amiguitos=new ArrayList();
-   static  ArrayList<Solicitude>solicitud=new ArrayList();
+    static ArrayList<Libros> libros = new ArrayList();
+    static ArrayList Amiguitos = new ArrayList();
+    static ArrayList<Solicitude> solicitud = new ArrayList();
+    static ArrayList historial=new ArrayList();
+
     public Usuarios() {
     }
 
@@ -101,6 +102,4 @@ public class Usuarios {
         return "Usuarios{" + "nombre=" + nombre + ", contrase\u00f1a=" + contraseña + ", numero=" + numero + ", correo=" + correo + ", NombreFull=" + NombreFull + ", genero=" + genero + ", fecha=" + fecha + ", libros=" + libros + ", Amiguitos=" + Amiguitos + '}';
     }
 
-  
-    
 }

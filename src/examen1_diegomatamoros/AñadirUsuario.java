@@ -48,6 +48,7 @@ public class AñadirUsuario extends javax.swing.JFrame {
         tf_nombreCompleto = new javax.swing.JTextField();
         tf_genero = new javax.swing.JTextField();
         bt_añadir = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,6 +94,8 @@ public class AñadirUsuario extends javax.swing.JFrame {
             }
         });
 
+        jLabel9.setText("**Si añade algo fuera de lo usual, como en genero, no ponga ninguna de las especificadas, saldra un try catch");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -115,7 +118,7 @@ public class AñadirUsuario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 7, Short.MAX_VALUE)
+                                .addGap(0, 56, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(tf_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -134,7 +137,11 @@ public class AñadirUsuario extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(157, 157, 157)
                         .addComponent(jLabel1)))
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,7 +176,9 @@ public class AñadirUsuario extends javax.swing.JFrame {
                     .addComponent(tf_nombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(bt_añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel9)
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         pack();
@@ -283,6 +292,7 @@ public class AñadirUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private com.toedter.calendar.JDateChooser jd_fecha;
     private javax.swing.JTextField tf_NumeroTelefonico;
     private javax.swing.JTextField tf_contra;

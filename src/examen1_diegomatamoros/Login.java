@@ -131,7 +131,8 @@ public class Login extends javax.swing.JFrame {
 
     private void bt_crearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_crearMouseClicked
         AñadirUsuario añadir = new AñadirUsuario();
-        añadir.setVisible(true);
+        Usuarios.historial.add("Se ha creado un usuario")
+;        añadir.setVisible(true);
     }//GEN-LAST:event_bt_crearMouseClicked
 
     private void jt_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jt_usuarioActionPerformed
@@ -140,6 +141,8 @@ public class Login extends javax.swing.JFrame {
     static int r;
     private void bt_iniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_iniciarMouseClicked
         AñadirUsuario u = new AñadirUsuario();
+       Usuarios.historial.add("ha entrado un usuario");
+        nombre = jt_usuario.getText();
         u.lista.add(new Usuarios("Salvador", "Nasralla", "99999999", "dam_900@hotmail.com", "ElMeroPresi", "historia", new Date()));
         for (int i = 0; i < u.lista.size(); i++) {
             if ("Salvador".equals(jt_usuario.getText())) {
@@ -198,7 +201,7 @@ public class Login extends javax.swing.JFrame {
                 }
             }
             if (u.lista.get(i).getNombre().equals(jt_usuario.getText()) && !"Salvador".equals(jt_usuario.getText())) {
-                nombre = jt_usuario.getText();
+                
                 if (u.lista.get(i).getContraseña().equals(jt_pass.getText()) && !"Salvador".equals(jt_usuario.getText())) {
                     r = i;
                     Main m = new Main();
