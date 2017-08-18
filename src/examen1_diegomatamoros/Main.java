@@ -63,7 +63,11 @@ public class Main extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         cb_solicitud = new javax.swing.JComboBox<>();
         jt_agregar = new javax.swing.JButton();
+        jb_acut = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        cb_libros = new javax.swing.JComboBox<>();
+        jb_actualizar = new javax.swing.JButton();
+        jb_devolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -181,6 +185,11 @@ public class Main extends javax.swing.JFrame {
                 jt_actualizarMouseClicked(evt);
             }
         });
+        jt_actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jt_actualizarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -219,15 +228,27 @@ public class Main extends javax.swing.JFrame {
 
         jt_agregar.setText("AGREGAR");
 
+        jb_acut.setText("Actualizar");
+        jb_acut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_acutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(cb_solicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96)
-                .addComponent(jt_agregar)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(cb_solicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(96, 96, 96)
+                        .addComponent(jt_agregar))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(jb_acut)))
                 .addContainerGap(235, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -237,20 +258,61 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cb_solicitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jt_agregar))
-                .addContainerGap(333, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jb_acut)
+                .addContainerGap(292, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Solicitudes", jPanel4);
+
+        cb_libros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_librosActionPerformed(evt);
+            }
+        });
+
+        jb_actualizar.setText("Actualizar");
+        jb_actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_actualizarActionPerformed(evt);
+            }
+        });
+
+        jb_devolver.setText("Devolver");
+        jb_devolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_devolverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 580, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(cb_libros, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jb_actualizar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 272, Short.MAX_VALUE)
+                .addComponent(jb_devolver)
+                .addGap(233, 233, 233))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(cb_libros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jb_devolver)
+                .addGap(24, 24, 24)
+                .addComponent(jb_actualizar)
+                .addContainerGap(259, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Mostrar Libros", jPanel3);
@@ -324,7 +386,7 @@ public class Main extends javax.swing.JFrame {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Ha introducido mal algo");
         }
-        
+
 
     }//GEN-LAST:event_jb_añadirMouseClicked
 
@@ -333,31 +395,75 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jt_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jt_volverActionPerformed
-        Login l=new Login();
+        Login l = new Login();
         l.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jt_volverActionPerformed
 
     private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
-        
+
     }//GEN-LAST:event_jComboBox1MouseClicked
 
     private void jt_actualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_actualizarMouseClicked
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) jComboBox1.getModel();
-        AñadirUsuario u=new AñadirUsuario();
+        AñadirUsuario u = new AñadirUsuario();
+        Login l = new Login();
         modelo.removeAllElements();
         for (int i = 0; i < u.lista.size(); i++) {
-
-            modelo.addElement(u.lista.get(i).getNombre());
+            if (l.nombre().equals(u.lista.get(i).getNombre())) {
+            } else {
+                modelo.addElement(u.lista.get(i).getNombre());
+            }
 
         }
     }//GEN-LAST:event_jt_actualizarMouseClicked
 
     private void jt_añadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_añadirMouseClicked
-        Usuarios r=new Usuarios();
+        Usuarios r = new Usuarios();
         r.Amiguitos.add(jComboBox1.getSelectedItem().toString());
-        
+
     }//GEN-LAST:event_jt_añadirMouseClicked
+
+    private void cb_librosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_librosActionPerformed
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_libros.getModel();
+        AñadirUsuario u = new AñadirUsuario();
+        Usuarios s = new Usuarios();
+        modelo.removeAllElements();
+        for (int i = 0; i < s.libros.size(); i++) {
+
+            modelo.addElement(s.libros.get(i).getTitulo());
+
+        }
+
+    }//GEN-LAST:event_cb_librosActionPerformed
+
+    private void jb_devolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_devolverActionPerformed
+        Usuarios s = new Usuarios();
+        int pos = cb_libros.getSelectedIndex();
+        s.libros.remove(pos);
+    }//GEN-LAST:event_jb_devolverActionPerformed
+
+    private void jb_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_actualizarActionPerformed
+
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_libros.getModel();
+        modelo.removeAllElements();
+        AñadirUsuario u = new AñadirUsuario();
+        Usuarios s = new Usuarios();
+        modelo.removeAllElements();
+        for (int i = 0; i < s.libros.size(); i++) {
+
+            modelo.addElement(s.libros.get(i).getTitulo());
+
+        }
+    }//GEN-LAST:event_jb_actualizarActionPerformed
+
+    private void jb_acutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_acutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_acutActionPerformed
+
+    private void jt_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jt_actualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jt_actualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -402,6 +508,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel Genero;
     private javax.swing.JLabel Puntaje;
     private javax.swing.JLabel Valor;
+    private javax.swing.JComboBox<String> cb_libros;
     private javax.swing.JComboBox<String> cb_solicitud;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -414,7 +521,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton jb_actualizar;
+    private javax.swing.JButton jb_acut;
     private javax.swing.JButton jb_añadir;
+    private javax.swing.JButton jb_devolver;
     private javax.swing.JButton jt_actualizar;
     private javax.swing.JButton jt_agregar;
     private javax.swing.JTextField jt_autos;

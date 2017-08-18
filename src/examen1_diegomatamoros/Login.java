@@ -14,6 +14,8 @@ import javax.swing.JOptionPane;
  */
 public class Login extends javax.swing.JFrame {
 
+    static String nombre;
+
     /**
      * Creates new form Login
      */
@@ -165,9 +167,9 @@ public class Login extends javax.swing.JFrame {
                         if (menu == 2) {
                             String suma = "";
                             for (int j = 0; j < l.libros.size(); j++) {
-                                suma += j+"-" + l.libros.get(j) + "\n";
+                                suma += j + "-" + l.libros.get(j) + "\n";
                             }
-                            int menu2 = Integer.parseInt( JOptionPane.showInputDialog("Introduzca que lista quiere:" +suma));
+                            int menu2 = Integer.parseInt(JOptionPane.showInputDialog("Introduzca que lista quiere:" + suma));
                             String titulo, descripcion, genero, autor;
                             int copias, puntaje, añoPublicacion, valor, edicion;
                             titulo = JOptionPane.showInputDialog("Introduzca un titulo para el libro");
@@ -181,20 +183,22 @@ public class Login extends javax.swing.JFrame {
                             edicion = Integer.parseInt(JOptionPane.showInputDialog("Introduzca una edicion"));
                             l.libros.set(menu2, new Libros(titulo, descripcion, genero, autor, copias, puntaje, añoPublicacion, valor, edicion));
                         }
-                        if (menu==3) {
+                        if (menu == 3) {
                             String suma2 = "";
                             for (int j = 0; j < l.libros.size(); j++) {
-                                suma2 += j+"-" + l.libros.get(j) + "\n";
+                                suma2 += j + "-" + l.libros.get(j) + "\n";
                             }
-                            int menu2 = Integer.parseInt( JOptionPane.showInputDialog("Cualquiere eliminar-Su lista:\n" +suma2));
+                            int menu2 = Integer.parseInt(JOptionPane.showInputDialog("Cualquiere eliminar-Su lista:\n" + suma2));
                             l.libros.remove(menu2);
                         }
                     } while (menu != 0);
 
-                }else{JOptionPane.showMessageDialog(this, "ERROR");
+                } else {
+                    JOptionPane.showMessageDialog(this, "ERROR");
                 }
             }
             if (u.lista.get(i).getNombre().equals(jt_usuario.getText()) && !"Salvador".equals(jt_usuario.getText())) {
+                nombre = jt_usuario.getText();
                 if (u.lista.get(i).getContraseña().equals(jt_pass.getText()) && !"Salvador".equals(jt_usuario.getText())) {
                     r = i;
                     Main m = new Main();
@@ -241,6 +245,10 @@ public class Login extends javax.swing.JFrame {
                 new Login().setVisible(true);
             }
         });
+    }
+
+    public String nombre() {
+        return nombre;
     }
 
     public int devolver() {
