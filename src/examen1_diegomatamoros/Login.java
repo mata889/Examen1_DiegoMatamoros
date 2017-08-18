@@ -165,9 +165,9 @@ public class Login extends javax.swing.JFrame {
                         if (menu == 2) {
                             String suma = "";
                             for (int j = 0; j < l.libros.size(); j++) {
-                                suma += "-" + l.libros.get(j) + "\n";
+                                suma += j+"-" + l.libros.get(j) + "\n";
                             }
-                            int menu2 = Integer.parseInt("Su lista:\n" + JOptionPane.showInputDialog(suma));
+                            int menu2 = Integer.parseInt( JOptionPane.showInputDialog("Introduzca que lista quiere:" +suma));
                             String titulo, descripcion, genero, autor;
                             int copias, puntaje, añoPublicacion, valor, edicion;
                             titulo = JOptionPane.showInputDialog("Introduzca un titulo para el libro");
@@ -182,15 +182,16 @@ public class Login extends javax.swing.JFrame {
                             l.libros.set(menu2, new Libros(titulo, descripcion, genero, autor, copias, puntaje, añoPublicacion, valor, edicion));
                         }
                         if (menu==3) {
-                            String suma2 = null;
+                            String suma2 = "";
                             for (int j = 0; j < l.libros.size(); j++) {
-                                suma2 += "-" + l.libros.get(j) + "\n";
+                                suma2 += j+"-" + l.libros.get(j) + "\n";
                             }
-                            int menu2 = Integer.parseInt("Cualquiere eliminar-Su lista:\n" + JOptionPane.showInputDialog(suma2));
+                            int menu2 = Integer.parseInt( JOptionPane.showInputDialog("Cualquiere eliminar-Su lista:\n" +suma2));
                             l.libros.remove(menu2);
                         }
                     } while (menu != 0);
 
+                }else{JOptionPane.showMessageDialog(this, "ERROR");
                 }
             }
             if (u.lista.get(i).getNombre().equals(jt_usuario.getText()) && !"Salvador".equals(jt_usuario.getText())) {

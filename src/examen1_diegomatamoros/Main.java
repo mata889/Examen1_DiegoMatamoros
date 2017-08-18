@@ -6,6 +6,7 @@
 package examen1_diegomatamoros;
 
 import java.util.EmptyStackException;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -57,7 +58,11 @@ public class Main extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jt_añadir = new javax.swing.JButton();
+        jt_actualizar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        cb_solicitud = new javax.swing.JComboBox<>();
+        jt_agregar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -152,10 +157,28 @@ public class Main extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         jLabel5.setText("Añadir amigos");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox1MouseClicked(evt);
+            }
+        });
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jt_añadir.setText("AÑADIR");
+        jt_añadir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_añadirMouseClicked(evt);
+            }
+        });
+
+        jt_actualizar.setText("Actualizar");
+        jt_actualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_actualizarMouseClicked(evt);
             }
         });
 
@@ -170,7 +193,12 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jLabel5))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(63, 63, 63)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(75, 75, 75)
+                        .addComponent(jt_añadir))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(jt_actualizar)))
                 .addContainerGap(222, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -178,22 +206,38 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jLabel5)
-                .addGap(26, 26, 26)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(301, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_añadir))
+                .addGap(38, 38, 38)
+                .addComponent(jt_actualizar)
+                .addContainerGap(238, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Añadir Amigos", jPanel2);
+
+        jt_agregar.setText("AGREGAR");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 580, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addComponent(cb_solicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96)
+                .addComponent(jt_agregar)
+                .addContainerGap(235, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_solicitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_agregar))
+                .addContainerGap(333, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Solicitudes", jPanel4);
@@ -294,6 +338,27 @@ public class Main extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jt_volverActionPerformed
 
+    private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
+        
+    }//GEN-LAST:event_jComboBox1MouseClicked
+
+    private void jt_actualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_actualizarMouseClicked
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) jComboBox1.getModel();
+        AñadirUsuario u=new AñadirUsuario();
+        modelo.removeAllElements();
+        for (int i = 0; i < u.lista.size(); i++) {
+
+            modelo.addElement(u.lista.get(i).getNombre());
+
+        }
+    }//GEN-LAST:event_jt_actualizarMouseClicked
+
+    private void jt_añadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_añadirMouseClicked
+        Usuarios r=new Usuarios();
+        r.Amiguitos.add(jComboBox1.getSelectedItem().toString());
+        
+    }//GEN-LAST:event_jt_añadirMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -337,6 +402,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel Genero;
     private javax.swing.JLabel Puntaje;
     private javax.swing.JLabel Valor;
+    private javax.swing.JComboBox<String> cb_solicitud;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -349,7 +415,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton jb_añadir;
+    private javax.swing.JButton jt_actualizar;
+    private javax.swing.JButton jt_agregar;
     private javax.swing.JTextField jt_autos;
+    private javax.swing.JButton jt_añadir;
     private javax.swing.JTextField jt_añoPubli;
     private javax.swing.JTextField jt_copias;
     private javax.swing.JTextField jt_descripcion;
